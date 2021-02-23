@@ -7,7 +7,7 @@ namespace EstruturaDeDados.Tests
     {
         public static void Show()
         {
-            LinkedList linkedList = new LinkedList();
+            LinkedList<double> linkedList = new LinkedList<double>();
 
             char op;
 
@@ -45,7 +45,7 @@ namespace EstruturaDeDados.Tests
             Console.Write("Opção: ");
         }
 
-        private static void AddElement(LinkedList linkedList)
+        private static void AddElement(LinkedList<double> linkedList)
         {
             Console.WriteLine();
             Console.Write("Digite um número: ");
