@@ -1,11 +1,11 @@
 ﻿namespace EstruturaDeDados.Util
 {
     // Representa um nó da listaa
-    public class Node
+    public class Node<T>
     {
         // O valor do nó
-        public double Value { get; set; }
+        public T Value { get; set; }
         // Referência para o próximo nó da da lista.
-        public Node NextNode { get; set; }
+        public Node<T> NextNode { get; set; }
     }
 }

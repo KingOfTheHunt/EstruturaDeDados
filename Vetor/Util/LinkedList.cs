@@ -2,14 +2,14 @@
 
 namespace EstruturaDeDados.Util
 {
-    class LinkedList
+    class LinkedList<T>
     {
         // Aponta para o primeiro elemento da lista.
-        private Node _head;
+        private Node<T> _head;
 
-        public void AddAtTheBeginning(double value)
+        public void AddAtTheBeginning(T value)
         {
-            Node node = new Node();
+            Node<T> node = new Node<T>();
             // Adicionado o valor ao node.
             node.Value = value;
             // Apontando para o próximo elemento da lista.
@@ -24,7 +24,7 @@ namespace EstruturaDeDados.Util
             builder.Append("[ ");
 
             // Recebe a referência para o primeiro elemento da lista.
-            Node current = _head;
+            Node<T> current = _head;
 
             while (current != null)
             {
