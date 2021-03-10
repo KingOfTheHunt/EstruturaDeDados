@@ -7,6 +7,8 @@ namespace EstruturaDeDados.Util
         // Aponta para o primeiro elemento da lista.
         private Node<T> _head;
 
+        public int Count { get; private set; }
+
         public void AddAtTheBeginning(T value)
         {
             Node<T> node = new Node<T>();
@@ -16,6 +18,32 @@ namespace EstruturaDeDados.Util
             node.NextNode = _head;
             // Fazendo a cabaça apontar para o novo node que foi criado.
             _head = node;
+
+            Count++;
+        }
+
+        /// <summary>
+        /// Adiciona o elemento ao final da lista.
+        /// </summary>
+        /// <param name="value"></param>
+        public void Add(T value)
+        {
+            Node<T> node = new Node<T>();
+            node.Value = value;
+
+            Node<T> current = _head;
+
+            while (current != null)
+            {
+                if (current.NextNode == null)
+                {
+                    current.NextNode = node;
+                    Count++;
+                    break;
+                }
+
+                current = current.NextNode;
+            }
         }
 
         public override string ToString()
