@@ -6,6 +6,7 @@ namespace EstruturaDeDados.Util
     {
         // Aponta para o primeiro elemento da lista.
         private Node<T> _head;
+        private Node<T> _tail;
 
         public int Count { get; private set; }
 
@@ -19,6 +20,11 @@ namespace EstruturaDeDados.Util
             // Fazendo a cabaça apontar para o novo node que foi criado.
             _head = node;
 
+            if (Count == 0)
+            {
+                _tail = node;
+            }
+
             Count++;
         }
 
@@ -30,20 +36,10 @@ namespace EstruturaDeDados.Util
         {
             Node<T> node = new Node<T>();
             node.Value = value;
+            _tail.NextNode = node;
+            _tail = node;
 
-            Node<T> current = _head;
-
-            while (current != null)
-            {
-                if (current.NextNode == null)
-                {
-                    current.NextNode = node;
-                    Count++;
-                    break;
-                }
-
-                current = current.NextNode;
-            }
+            Count++;
         }
 
         public override string ToString()
