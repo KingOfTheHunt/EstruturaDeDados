@@ -35,6 +35,12 @@ namespace EstruturaDeDados.Util
         /// <param name="value"></param>
         public void Add(T value)
         {
+            if (Count == 0)
+            {
+                AddAtTheBeginning(value);
+                return;
+            }
+
             Node<T> node = new Node<T>();
             node.Value = value;
             _tail.NextNode = node;
@@ -63,6 +69,20 @@ namespace EstruturaDeDados.Util
             }
 
             return false;
+        }
+
+        public void RemoveFirst()
+        {
+            if (Count == 0)
+            {
+                throw new Exception("Não é possível remover pois a lista está vazia.");
+            }
+            
+            if (_head != null)
+            {
+                _head = _head.NextNode;
+                Count--;
+            }
         }
 
         public void Clear()
