@@ -25,20 +25,23 @@ namespace EstruturaDeDados.Tests
                         AddElementAtEnd(linkedList);
                         break;
                     case '3':
-                        Console.WriteLine(linkedList);
+                        Contains(linkedList);
                         break;
                     case '4':
-                        Console.WriteLine($"{linkedList.Count} elementos.");
+                        Console.WriteLine(linkedList);
                         break;
                     case '5':
-                        Console.WriteLine("Fim do programa!");
+                        Console.WriteLine("Qtd. de elementos: " + linkedList.Count);
+                        break;
+                    case '6':
+                        Console.WriteLine("Fim do programa!!!");
                         break;
                     default:
                         Console.WriteLine("Opção inválida.");
                         break;
                 }
 
-            } while (op != '5');
+            } while (op != '6');
         }
 
         private static void Menu()
@@ -47,9 +50,10 @@ namespace EstruturaDeDados.Tests
             Console.WriteLine("\t\tMenu");
             Console.WriteLine("1 - Adicionar um elemento no ínicio da lista.");
             Console.WriteLine("2 - Adicionar um elemento no final da lista.");
-            Console.WriteLine("3 - Mostrar a lista.");
-            Console.WriteLine("4 - Mostrar o tamanho da lista.");
-            Console.WriteLine("5 - Sair");
+            Console.WriteLine("3 - Verifica se há um elemento na lista.");
+            Console.WriteLine("4 - Mostrar a lista.");
+            Console.WriteLine("5 - Mostrar o tamanho da lista.");
+            Console.WriteLine("6 - Sair");
             Console.Write("Opção: ");
         }
 
@@ -67,6 +71,21 @@ namespace EstruturaDeDados.Tests
             Console.Write("Digite um número: ");
             double num = double.Parse(Console.ReadLine());
             linkedList.Add(num);
+        }
+
+        private static void Contains(LinkedList<double> linkedList)
+        {
+            try
+            {
+                Console.WriteLine();
+                Console.Write("Digite um número: ");
+                double num = double.Parse(Console.ReadLine());
+                Console.WriteLine($"Contém? { linkedList.Contains(num)}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }
