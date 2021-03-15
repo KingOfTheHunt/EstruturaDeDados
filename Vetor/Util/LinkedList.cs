@@ -75,13 +75,50 @@ namespace EstruturaDeDados.Util
         {
             if (Count == 0)
             {
-                throw new Exception("Não é possível remover pois a lista está vazia.");
+                throw new Exception("Não é possível remover, pois a lista está vazia.");
             }
             
             if (_head != null)
             {
                 _head = _head.NextNode;
                 Count--;
+            }
+        }
+
+        public void Remove(T value)
+        {
+            // Irá armazenar a referência para o elemento anterior.
+            Node<T> prev = null;
+            Node<T> current = _head;
+
+            while (current.NextNode != null)
+            {
+                if (prev == null && current != _head)
+                {
+                    prev = _head;
+                }
+
+                if (current.Value.Equals(value))
+                {
+                    if (prev != null)
+                    {
+                        prev.NextNode = current.NextNode;
+                        break;
+                    }
+                    else
+                    {
+                        RemoveFirst();
+                        break;
+                    }
+                }
+
+                current = current.NextNode;
+
+                if (prev != null)
+                {
+                    // Armazenando a referência para o node anterior.
+                    prev = prev.NextNode;
+                }
             }
         }
 
