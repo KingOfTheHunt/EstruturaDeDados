@@ -34,6 +34,9 @@ namespace EstruturaDeDados.Tests
                         Console.WriteLine("Qtd. de elementos: " + linkedList.Count);
                         break;
                     case '6':
+                        RemoveFirst(linkedList);
+                        break;
+                    case '7':
                         Console.WriteLine("Fim do programa!!!");
                         break;
                     default:
@@ -41,7 +44,7 @@ namespace EstruturaDeDados.Tests
                         break;
                 }
 
-            } while (op != '6');
+            } while (op != '7');
         }
 
         private static void Menu()
@@ -53,7 +56,8 @@ namespace EstruturaDeDados.Tests
             Console.WriteLine("3 - Verifica se há um elemento na lista.");
             Console.WriteLine("4 - Mostrar a lista.");
             Console.WriteLine("5 - Mostrar o tamanho da lista.");
-            Console.WriteLine("6 - Sair");
+            Console.WriteLine("6 - Remover o primeiro elemento da lista.");
+            Console.WriteLine("7 - Sair");
             Console.Write("Opção: ");
         }
 
@@ -71,6 +75,18 @@ namespace EstruturaDeDados.Tests
             Console.Write("Digite um número: ");
             double num = double.Parse(Console.ReadLine());
             linkedList.Add(num);
+        }
+
+        private static void RemoveFirst(LinkedList<double> linkedList)
+        {
+            try
+            {
+                linkedList.RemoveFirst();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private static void Contains(LinkedList<double> linkedList)
