@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 
 namespace EstruturaDeDados.Util
 {
@@ -40,6 +41,35 @@ namespace EstruturaDeDados.Util
             _tail = node;
 
             Count++;
+        }
+
+        public bool Contains(T value)
+        {
+            if (Count == 0)
+            {
+                throw new Exception("Não é possível realizar esta operação, pois a lista está vazia.");
+            }
+
+            Node<T> current = _head;
+
+            while (current.NextNode != null)
+            {
+                if (current.Value.Equals(value))
+                {
+                    return true;
+                }
+
+                current = current.NextNode;
+            }
+
+            return false;
+        }
+
+        public void Clear()
+        {
+            _head = null;
+            _tail = null;
+            Count = 0;
         }
 
         public override string ToString()
